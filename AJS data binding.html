@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <!--<p ng-bind="firstname"></p>
+        <p>First name: {{firstname}}</p>
+        <input ng-model="firstname">
+        Name: <input ng-model="firstname">
+        <h1>{{firstname}}</h1>-->
+        <h1 ng-click="changeName()">{{firstname}}</h1>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope)
+        {
+            $scope.firstname = "John";
+            //$scope.lastname = "Doe";
+            $scope.changeName = function() {
+                $scope.firstname = "Nelly";
+            }
+        });
+
+    </script>
+    <p>Use the ng-bind directive to bind the innerHTML of an element to a property in the data model.</p>
+    <p>Click on the header to run the "changeName" function.</p>
+
+</body>
+</html>
