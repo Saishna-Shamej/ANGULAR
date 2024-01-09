@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<!--<h1>{{carname}}</h1>
+<input ng-model="name">
+<h1>My name is {{name}}</h1>
+
+<ul>
+    <li ng-repeat="x in names">{{x}}</li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    //$scope.carname = "Volvo";
+    //$scope.name = "John Doe";
+    $scope.names = ["Emil", "Tobias", "Linus"];
+});
+</script>
+
+<p>The property "carname" was made in the controller, and can be referred to in the view by using the {{ }} brackets.</p>
+<p>When you change the name in the input field, the changes will affect the model, and it will also affect the name property in the controller.</p>
+
+<p>The variable "x" has a different value for each repetition, proving that each repetition has its own scope.</p>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp">
+
+<p>The rootScope's favorite color:</p>
+<h1>{{color}}</h1>
+
+<div ng-controller="myCtrl">
+
+<p>The scope of the controller's favorite color:</p>
+<h1>{{color}}</h1>
+
+</div>
+
+<p>The rootScope's favorite color is still:</p>
+<h1>{{color}}</h1>
+
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+app.controller('myCtrl', function($scope) {
+    $scope.color = "red";
+});
+</script>
+
+<p>Notice that controller's color variable does not overwrite the rootScope's color value.</p>
+
+</body>
+</html>
